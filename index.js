@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
+const request = require('request');
 const { init: initDB, Counter } = require("./db");
 
 const logger = morgan("tiny");
@@ -46,13 +47,26 @@ app.post('/api/message', async (req, res) => {
         }
     }
     // dispatch to wx server
+    /*
     const result = await client.post(weixinAPI, payload)
     console.log('received request', req.body, result.data)
     res.send('success')
+    */
+    return new Promise((resolve, reject) => {
+        request({
+            method: 'POST',
+            url: 'http://api.weixin.qq.com/cgi-bin/message/custom/send',
+            body: JSON.stringify(payload)
+        }, function (error, response) {
+            console.log('接口返回内容', response.body)
+            resolve(JSON.parse(response.body))
+        })
+    })
 });
-
+/*
 app.listen(PORT, HOST)
 console.log(`Running on http://${HOST}:${PORT}`)
+*/
 
 // 首页
 app.get("/", async (req, res) => {

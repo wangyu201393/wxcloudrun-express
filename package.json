@@ -15,7 +15,8 @@
     "mysql2": "^2.3.2",
     "sequelize": "^6.8.0",
     "body-parser": "*",
-    "axios": "*"
+    "axios": "*",
+    "request": "*"
   },
   "engines": {
     "node": ">=12.0.0"
