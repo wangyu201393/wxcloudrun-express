@@ -31,6 +31,7 @@ app.post('/api/message', async (req, res) => {
     const weixinAPI = `https://api.weixin.qq.com/cgi-bin/message/subscribe/send?cloudbase_access_token=${token}`
     
     const payload = {
+        cloudbase_access_token: token,
         touser: headers['x-wx-openid'],
         template_id: 'd7XQzPj4rx9b3McEVbuo_C7TPXuL6B5h',
         page: 'pages/albumMaker/assetsManager/assetsManager',
@@ -55,7 +56,7 @@ app.post('/api/message', async (req, res) => {
     return new Promise((resolve, reject) => {
         request({
             method: 'POST',
-            url: 'http://api.weixin.qq.com/cgi-bin/message/custom/send',
+            url: 'https://api.weixin.qq.com/cgi-bin/message/custom/send',
             body: JSON.stringify(payload)
         }, function (error, response) {
             console.log('接口返回内容', response.body)
