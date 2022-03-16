@@ -35,12 +35,13 @@ app.post('/api/message', async (req, res) => {
         touser: headers['x-wx-openid'],
         template_id: 'd7XQzPj4rx9b3McEVbuo_C7TPXuL6B5hDvGQwKIqrx8',
         page: 'pages/albumMaker/assetsManager/assetsManager',
+        miniprogram_state: 'trial',
         data: {
             name2: {
-                value: "丁真"
+                value: "义眼丁真"
             },
             thing3: {
-                value: "义眼"
+                value: "1234567890"
             },
             phrase1: {
                 value: "真"
