@@ -27,7 +27,8 @@ const client = axios.default
 app.post('/api/message', async (req, res) => {
     const headers = req.headers
     const token = headers['x-wx-cloudbase-access-token']
-    const weixinAPI = `https://api.weixin.qq.com/cgi-bin/message/subscribe/send`
+    const weixinAPI = `http://api.weixin.qq.com/cgi-bin/message/subscribe/send`
+    
     const payload = {
         touser: headers['x-wx-openid'],
         template_id: 'd7XQzPj4rx9b3McEVbuo_C7TPXuL6B5h',
