@@ -33,7 +33,7 @@ app.post('/api/message', async (req, res) => {
     const payload = {
         cloudbase_access_token: token,
         touser: headers['x-wx-openid'],
-        template_id: 'd7XQzPj4rx9b3McEVbuo_C7TPXuL6B5h',
+        templateId: 'd7XQzPj4rx9b3McEVbuo_C7TPXuL6B5h',
         page: 'pages/albumMaker/assetsManager/assetsManager',
         data: {
             name1: {
