@@ -63,7 +63,7 @@ app.post('/api/message', async (req, res) => {
             resolve(JSON.parse(response.body))
         })
     })
-    *
+    */
 });
 /*
 app.listen(PORT, HOST)
