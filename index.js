@@ -36,7 +36,7 @@ app.post('/api/message', async (req, res) => {
         template_id: 'd7XQzPj4rx9b3McEVbuo_C7TPXuL6B5hDvGQwKIqrx8',
         page: 'pages/albumMaker/assetsManager/assetsManager',
         data: {
-            name1: {
+            name2: {
                 value: "丁真"
             },
             thing3: {
