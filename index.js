@@ -75,14 +75,19 @@ console.log(`Running on http://${HOST}:${PORT}`)
 app.post("/api/getQR", async (req, res) => {
     const headers = req.headers
     // const token = headers['x-wx-cloudbase-access-token']
+    const weixinAPI = 'https://api.weixin.qq.com/wxa/getwxacodeunlimit'
     const payload = {
         // cloudbase_access_token: token,
-        page: 'pages/albumMaker/assetsManager/assetsManager',
+        page: req.body.path,
         scene: req.body.query
     }
     console.log("payload: ");
     console.log(JSON.stringify(payload), null, 4);
 
+    const result = await client.post(weixinAPI, payload)
+    console.log('received request', req.body, result.data)
+    res.send(result.data)
+    /*
     return new Promise((resolve, reject) => {
         request({
             method: 'POST',
@@ -94,6 +99,7 @@ app.post("/api/getQR", async (req, res) => {
             res.send(response.body);
         })
     })
+    */
 });
 
 // 首页
