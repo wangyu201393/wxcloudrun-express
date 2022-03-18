@@ -80,13 +80,16 @@ app.post("/api/getQR", async (req, res) => {
         page: req.body.path,
         scene: req.body.query
     }
+    console.log("payload: ");
+    console.log(JSON.stringify(payload), null, 4);
+
     return new Promise((resolve, reject) => {
         request({
             method: 'POST',
             url: `https://api.weixin.qq.com/wxa/getwxacodeunlimit`,
-            body: JSON.stringify(payload)
+            body: payload
         }, function (error, response) {
-            console.log('接口返回内容', response.body)
+            // console.log('接口返回内容', response.body)
             // resolve(JSON.parse(response.body))
             res.send(response.body);
         })
