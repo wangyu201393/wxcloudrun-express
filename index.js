@@ -71,6 +71,28 @@ app.listen(PORT, HOST)
 console.log(`Running on http://${HOST}:${PORT}`)
 */
 
+// 获取分享二维码
+app.post("/api/getQR", async (req, res) => {
+    const headers = req.headers
+    const token = headers['x-wx-cloudbase-access-token']
+    const payload = {
+        cloudbase_access_token: token,
+        page: req.body.path,
+        scene: req.body.query
+    }
+    return new Promise((resolve, reject) => {
+        request({
+            method: 'POST',
+            url: `https://api.weixin.qq.com/wxa/getwxacodeunlimit?cloudbase_access_token=${token}`,
+            body: JSON.stringify(payload)
+        }, function (error, response) {
+            console.log('接口返回内容', response.body)
+            // resolve(JSON.parse(response.body))
+            res.send(response.body);
+        })
+    })
+});
+
 // 首页
 app.get("/", async (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
