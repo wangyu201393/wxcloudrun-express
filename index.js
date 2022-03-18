@@ -84,22 +84,17 @@ app.post("/api/getQR", async (req, res) => {
     console.log("payload: ");
     console.log(JSON.stringify(payload), null, 4);
 
-    const result = await client.post(weixinAPI, payload)
-    // console.log('received request', req.body, result.data)
-    res.send(result)
-    /*
     return new Promise((resolve, reject) => {
         request({
             method: 'POST',
-            url: `https://api.weixin.qq.com/wxa/getwxacodeunlimit`,
+            url: weixinAPI,
             body: JSON.stringify(payload)
         }, function (error, response) {
             // console.log('接口返回内容', response.body)
             // resolve(JSON.parse(response.body))
-            res.send(response.body);
+            res.send(response);
         })
     })
-    */
 });
 
 // 首页
