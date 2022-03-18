@@ -86,7 +86,7 @@ app.post("/api/getQR", async (req, res) => {
 
     const result = await client.post(weixinAPI, payload)
     console.log('received request', req.body, result.data)
-    res.send(result.data)
+    res.send(result)
     /*
     return new Promise((resolve, reject) => {
         request({
