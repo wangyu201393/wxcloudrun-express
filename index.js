@@ -78,7 +78,7 @@ app.post("/api/getQR", async (req, res) => {
     const weixinAPI = 'https://api.weixin.qq.com/wxa/getwxacodeunlimit'
     const payload = {
         // cloudbase_access_token: token,
-        page: req.body.path,
+        // page: req.body.path,
         scene: req.body.query
     }
     console.log("payload: ");
