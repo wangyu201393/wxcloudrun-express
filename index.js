@@ -77,7 +77,7 @@ app.post("/api/getQR", async (req, res) => {
     // const token = headers['x-wx-cloudbase-access-token']
     const payload = {
         // cloudbase_access_token: token,
-        page: req.body.path,
+        page: 'pages/albumMaker/assetsManager/assetsManager',
         scene: req.body.query
     }
     console.log("payload: ");
