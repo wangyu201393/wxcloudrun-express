@@ -88,14 +88,10 @@ app.post("/api/getQR", async (req, res) => {
         request({
             method: 'POST',
             url: weixinAPI,
-            encoding: null,
+            encoding: null, // !important
             body: JSON.stringify(payload)
         }, function (error, response) {
-            // console.log('接口返回内容', response.body)
-            // resolve(JSON.parse(response.body))
-            // console.log(JSON.stringify(response, null, 4));
-            console.log("------");
-            console.log(response.body);
+            console.log(typeof response.body);
             res.send(response.body.toString('base64'));
         })
     })
