@@ -92,8 +92,8 @@ app.post("/api/getQR", async (req, res) => {
         }, function (error, response) {
             // console.log('接口返回内容', response.body)
             // resolve(JSON.parse(response.body))
-            console.log(JSON.stringify(response, null, 4));
-            res.send(response);
+            // console.log(JSON.stringify(response, null, 4));
+            res.send(response.data.body.toString('base64'));
         })
     })
 });
