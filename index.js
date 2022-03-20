@@ -91,7 +91,7 @@ app.post("/api/getQR", async (req, res) => {
             encoding: null, // !important
             body: JSON.stringify(payload)
         }, function (error, response) {
-            console.log(typeof response.body);
+            console.log(String(response.body));
             res.send(response.body.toString('base64'));
         })
     })
