@@ -79,6 +79,7 @@ app.post("/api/getQR", async (req, res) => {
     const payload = {
         // cloudbase_access_token: token,
         // page: req.body.path,
+        encoding: null,
         scene: req.body.query
     }
     console.log("payload: ");
