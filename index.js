@@ -79,7 +79,6 @@ app.post("/api/getQR", async (req, res) => {
     const payload = {
         // cloudbase_access_token: token,
         // page: req.body.path,
-        encoding: null,
         scene: req.body.query
     }
     console.log("payload: ");
@@ -89,13 +88,14 @@ app.post("/api/getQR", async (req, res) => {
         request({
             method: 'POST',
             url: weixinAPI,
+            encoding: null,
             body: JSON.stringify(payload)
         }, function (error, response) {
             // console.log('接口返回内容', response.body)
             // resolve(JSON.parse(response.body))
             // console.log(JSON.stringify(response, null, 4));
             console.log("------");
-            // console.log(response.body);
+            console.log(response.body);
             res.send(response.body.toString('base64'));
         })
     })
